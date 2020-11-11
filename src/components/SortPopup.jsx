@@ -1,13 +1,13 @@
-import React, {useState} from "react";
+import React from "react";
 import classNames from 'classnames'
 
-const SortPopup = ({selected, onSelected, itemsPopup}) => {
+const SortPopup = ({selected, handleSelected, itemsPopup}) => {
     return (
         <div className="sort__popup">
             <ul>
                 {itemsPopup.map((item, i) => <li
                     className={classNames({'active': i === selected})}
-                    onClick={() => onSelected(i)}>{item}</li>)}
+                    onClick={() => handleSelected(i)}>{item}</li>)}
             </ul>
         </div>
     )

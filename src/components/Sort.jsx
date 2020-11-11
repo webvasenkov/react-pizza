@@ -21,7 +21,7 @@ const Sort = (props) => {
         document.body.addEventListener('click', handleOutsideClick)
     }, [])
 
-    const onSelected = (index) => {
+    const handleSelected = (index) => {
         setSelected(index)
         setVisiblePopup(false)
     }
@@ -32,7 +32,6 @@ const Sort = (props) => {
 
     return (
         <div className="sort" ref={sortRef}>
-
             <div className={classNames('sort__label', {'sort__label--rotate' : visiblePopup})}>
                 <svg
                     width="10"
@@ -51,7 +50,7 @@ const Sort = (props) => {
             </div>
 
             {visiblePopup &&
-            <SortPopup onSelected={onSelected} selected={selected} itemsPopup={itemsPopup}/>
+            <SortPopup handleSelected={handleSelected} selected={selected} itemsPopup={itemsPopup}/>
             }
         </div>
     );
