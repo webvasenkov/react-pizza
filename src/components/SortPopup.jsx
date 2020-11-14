@@ -1,13 +1,15 @@
 import React from "react";
 import classNames from 'classnames'
 
-const SortPopup = ({selected, handleSelected, itemsPopup}) => {
+const SortPopup = ({activeSort, handleSelected, itemsPopup}) => {
+    debugger
     return (
         <div className="sort__popup">
             <ul>
-                {itemsPopup.map((item, i) => <li
-                    className={classNames({'active': i === selected})}
-                    onClick={() => handleSelected(i)}>{item}</li>)}
+                {itemsPopup.map(({type, name}, i) => <li
+                    key={`${type}_${i}`}
+                    className={classNames({'active': type === activeSort.sort})}
+                    onClick={() => handleSelected(type)}>{name}</li>)}
             </ul>
         </div>
     )
